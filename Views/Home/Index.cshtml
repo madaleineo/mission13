@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<Bowler>
+
+<div class="text-center">
+    <h1 class="display-4">Bowlers Directory</h1>
+</div>
+
+<h2>Current Bowlers</h2>
+<br />
+
+<ul style="list-style-type:none;">
+    @foreach (var b in Model)
+    {
+        <li><b>@b.BowlerFirstName @b.BowlerMiddleInit @b.BowlerLastName</b></li>
+        <li>@b.BowlerAddress</li>
+        <li>@b.BowlerCity, @b.BowlerState @b.BowlerZip</li>
+        <li>@b.BowlerPhoneNumber</li>
+        <li>Team: @b.Team.TeamName</li>
+        <br />
+    }
+</ul>
+
+
+
