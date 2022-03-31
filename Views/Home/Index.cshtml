@@ -2,26 +2,66 @@
     ViewData["Title"] = "Home Page";
 }
 
-@model List<Bowler>
+@model BowlersViewModel
 
 <div class="text-center">
     <h1 class="display-4">Bowlers Directory</h1>
 </div>
 
-<h2>Current Bowlers</h2>
+<h2>@ViewData["TeamName"]</h2>
 <br />
 
-<ul style="list-style-type:none;">
-    @foreach (var b in Model)
-    {
-        <li><b>@b.BowlerFirstName @b.BowlerMiddleInit @b.BowlerLastName</b></li>
-        <li>@b.BowlerAddress</li>
-        <li>@b.BowlerCity, @b.BowlerState @b.BowlerZip</li>
-        <li>@b.BowlerPhoneNumber</li>
-        <li>Team: @b.Team.TeamName</li>
-        <br />
-    }
-</ul>
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <td>Bowler ID</td>
+            <td>First Name</td>
+            <td>Middle Initial</td>
+            <td>Last Name</td>
+            <td>Address</td>
+            <td>City</td>
+            <td>State</td>
+            <td>Zip</td>
+            <td>Phone Number</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var b in Model.Bowlers)
+        {
+        <tr>
+
+            <td>@b.BowlerID</td>
+            <td>@b.BowlerFirstName</td>
+            <td>@b.BowlerMiddleInit</td>
+            <td>@b.BowlerLastName</td>
+            <td>@b.BowlerAddress</td>
+            <td>@b.BowlerCity</td>
+            <td>@b.BowlerState</td>
+            <td>@b.BowlerZip</td>
+            <td>@b.BowlerPhoneNumber</td>
+            <td><a class="btn btn-primary" asp-action="EditBowler" asp-route-id="@b.BowlerID">Edit</a></td>
+            <td><a class="btn btn-primary" asp-action="DeleteBowler" asp-route-id="@b.BowlerID">Delete</a></td>
+
+        </tr>
+        }
+
+
+    </tbody>
+</table>
+<br />
+<div>
+    <a class="btn btn-primary" asp-action="AddBowler">Add New Bowler</a>
+</div>
+<br />
+
+
+<div page-blah="@Model.PageInfo" page-action="Index" page-class="btn" page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary" page-classes-enabled="true" class="btn-group pull-right m-1"></div>
 
 
 

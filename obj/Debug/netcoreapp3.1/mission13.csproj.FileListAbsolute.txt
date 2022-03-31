@@ -54,3 +54,7 @@
 /Users/madaleineosmun/code/junior-core/mission13/mission13/obj/Debug/netcoreapp3.1/mission13.dll
 /Users/madaleineosmun/code/junior-core/mission13/mission13/obj/Debug/netcoreapp3.1/mission13.pdb
 /Users/madaleineosmun/code/junior-core/mission13/mission13/obj/Debug/netcoreapp3.1/mission13.genruntimeconfig.cache
+/Users/madaleineosmun/code/junior-core/mission13/mission13/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Components/TeamName/Default.cshtml.g.cs
+/Users/madaleineosmun/code/junior-core/mission13/mission13/obj/Debug/netcoreapp3.1/Razor/Views/Home/AddBowler.cshtml.g.cs
+/Users/madaleineosmun/code/junior-core/mission13/mission13/obj/Debug/netcoreapp3.1/Razor/Views/Home/DeleteBowler.cshtml.g.cs
+/Users/madaleineosmun/code/junior-core/mission13/mission13/obj/Debug/netcoreapp3.1/Razor/Views/Home/EditBowler.cshtml.g.cs

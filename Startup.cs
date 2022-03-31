@@ -28,10 +28,10 @@ namespace mission13
             services.AddControllersWithViews();
 
             services.AddDbContext<BowlersDbContext>(options =>
-           {
-               options.UseMySql(Configuration["ConnectionStrings:BowlingDBConnection"]);
+            {
+                options.UseMySql(Configuration["ConnectionStrings:BowlingDBConnection"]);
 
-           });
+            });
 
             services.AddScoped<IBowlersRepository, EFBowlersRepository>();
         }
