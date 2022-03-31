@@ -34,6 +34,11 @@ namespace mission13
             });
 
             services.AddScoped<IBowlersRepository, EFBowlersRepository>();
+
+            services.AddRazorPages();
+
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,10 +62,29 @@ namespace mission13
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
-            {
+            { // endpoints are executed in order
+
+                endpoints.MapControllerRoute("teamName",
+                    "{teamName}/Page{pageNum}",
+                    new { Controller = "Home", action = "Index" }
+                    );
+
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    name: "Paging",
+                    pattern: "Page{pageNum}",
+                    defaults: new { Controller = "Home", action = "Index", pageNum = 1 }
+                    );
+
+                endpoints.MapControllerRoute("teamName",
+                    "{teamName}",
+                    new { Controller = "Home", action = "Index", pageNum = 1 }
+                    );
+
+
+
+                endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
         }
     }
